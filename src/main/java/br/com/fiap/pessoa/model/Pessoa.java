@@ -1,17 +1,25 @@
 package br.com.fiap.pessoa.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-
+@Entity
+@Table(name = "TB_PESSOA")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "TP_PESSOA")
 public abstract class Pessoa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PESSOA")
+    @Column(name = "ID_PESSOA")
     protected Long id;
 
-
+    @Column(name = "NM_PESSOA", nullable = false)
     protected String nome;
 
-
+    @Column(name = "DT_NASCIMENTO", nullable = false)
     protected LocalDate nascimento;
 
     public Pessoa() {
@@ -53,13 +61,13 @@ public abstract class Pessoa {
     @Override
     public boolean equals(Object o) {
 
-        if (Objects.isNull(o)) return false;
+        if (Objects.isNull( o )) return false;
 
         if (this == o) return true;
         if (!(o instanceof Pessoa pessoa)) return false;
 
-        if (Objects.isNull(this.getId())) return false;
+        if (Objects.isNull( this.getId() )) return false;
 
-        return getId().equals(pessoa.getId());
+        return getId().equals( pessoa.getId() );
     }
 }
