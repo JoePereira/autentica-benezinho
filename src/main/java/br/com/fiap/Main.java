@@ -92,16 +92,16 @@ public class Main {
         try {
 
 
-//            manager.getTransaction().begin();
-//            manager.persist( benefrancis );
-//            manager.getTransaction().commit();
+            manager.getTransaction().begin();
+            manager.persist( benefrancis );
+            manager.getTransaction().commit();
 
 
             //Métodos para consultar aqui:
             //  findById( manager );
 
 
-            findAll( manager );
+            // findAll( manager );
 
 
         } catch (Exception e) {
@@ -118,7 +118,7 @@ public class Main {
         } finally {
             manager.close();
             factory.close();
-//            System.out.println( benefrancis );
+            System.out.println( benefrancis );
         }
 
     }
