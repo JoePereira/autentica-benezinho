@@ -13,12 +13,14 @@ import jakarta.persistence.Persistence;
 
 import javax.swing.*;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Random;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("oracle");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("maria-db");
         EntityManager manager = factory.createEntityManager();
 
         var bene = new PessoaFisica();
@@ -27,6 +29,15 @@ public class Main {
                 .setSexo(Sexo.MASCULINO)
                 .setNome("Benefrancis do Nascimento")
                 .setNascimento(LocalDate.of(1977, 3, 8));
+
+        var bruno = new PessoaFisica();
+        bruno.setNome( "Bruno Sudré" );
+
+        bruno.setCPF( "1132135" )
+                .setSexo( Sexo.MASCULINO )
+                .setNascimento( LocalDate.of( 200, Month.MAY,15 ) );
+
+        bene.addFilho( bruno );
 
         var holding = new PessoaJuridica();
         holding.addSocio(bene)
