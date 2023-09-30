@@ -134,7 +134,7 @@ A correção da prova será disponibilizada no github do professor (branch corre
 Para acessar digite no prompt:
 
 ```shell
-git clone https://github.com/Benefrancis/autentica-benezinho.git && cd autentica-benezinho && git checkout correcao
+git clone https://github.com/Benefrancis/autentica-benezinho.git && cd autentica-benezinho && git checkout correcao/2tdspt
 ```
 
 A atividade é individual, em caso de fraude de qualquer tipo todos os envolvidos receberão nota ZERO.
