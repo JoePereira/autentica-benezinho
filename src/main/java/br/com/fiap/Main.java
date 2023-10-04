@@ -87,6 +87,11 @@ public class Main {
 
 
             //Métodos para consultar aqui:
+            //Metodo para puxar todos os dados
+            //findAll( manager );
+            //metodo para puxar os dados por ID
+            //findById( manager );
+
 
 
         } catch (Exception e) {
@@ -106,6 +111,18 @@ public class Main {
             System.out.println(benefrancis);
         }
 
+    }
+
+    private static void findAll(EntityManager manager) {
+        manager.createQuery( "FROM User" ).getResultList().forEach( System.out::println );
+    }
+
+    private static void findById(EntityManager manager) {
+        Long id = Long.valueOf( JOptionPane.showInputDialog( "Informe o id do Usuário" ) );
+
+        User user = manager.find( User.class, id );
+
+        System.out.println( user );
     }
 
     private static String geraCpf() {
